@@ -6,6 +6,8 @@ const PORT = process.env.NODE_PORT || 3000;
 
 require("./db");
 
+require("./routes")(app);
+
 app.use(express.static("public"));
 
 app.get("*", (req, res) => {
