@@ -43,5 +43,6 @@ gulp.task("css", () => {
 
 gulp.task("default", ["nodemon", "browsersync"], () => {
 	gulp.watch("./**/*.html", bs.reload);
+	gulp.watch("./public/**/*.js", bs.reload);
 	gulp.watch("./**/*.scss", ["css"]);
 });
