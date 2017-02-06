@@ -10,5 +10,8 @@
 		vm.postArticle = function(article) {
 			return $http.post("/api/article", article);
 		};
+		vm.getArticle = function(slug) {
+			return $http.get("/api/article/" + slug);
+		};
 	}]);
 })();
