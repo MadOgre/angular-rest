@@ -35,6 +35,8 @@ function getOne(req, res, next) {
 
 function create(req, res, next) {
 	let article = new models.Article(req.body);
+	article.author = "Anonymous";
+	article.created_at = new Date();
 	article.save()
 	.then((data) => {
 		res.json(data);
