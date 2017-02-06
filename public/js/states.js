@@ -9,7 +9,13 @@
 			url: "/",
 			component: "mainView"
 		};
+		var newarticle = {
+			name: "home.newarticle",
+			url: "newarticle",
+			component: "articleForm"
+		};
 		$stateProvider.state(homestate);
+		$stateProvider.state(newarticle);
 		$locationProvider.html5Mode(true);
 	}]);
 })();
