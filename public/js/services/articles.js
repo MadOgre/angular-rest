@@ -3,15 +3,17 @@
 	angular.module("angular-rest")
 	.service("articlesService", ["$http", function($http){
 		var vm = this;
-		var promise = $http.get("/api/articles");
 		vm.getAllArticles = function() {
-			return promise;
+			return $http.get("/api/articles");
 		};
 		vm.postArticle = function(article) {
 			return $http.post("/api/article", article);
 		};
 		vm.getArticle = function(slug) {
 			return $http.get("/api/article/" + slug);
+		};
+		vm.updateArticle = function(slug, payload) {
+			return $http.put("/api/article/" + slug, payload);
 		};
 	}]);
 })();
