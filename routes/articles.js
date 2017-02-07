@@ -50,6 +50,7 @@ function update(req, res, next) {
 	models.Article.findOne({slug: req.params.slug})
 	.then((article) => {
 		Object.assign(article, req.body);
+		article.updated_at = new Date();
 		return article.save();
 	})
 	.then((data) => {
