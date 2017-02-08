@@ -15,5 +15,8 @@
 		vm.updateArticle = function(slug, payload) {
 			return $http.put("/api/article/" + slug, payload);
 		};
+		vm.deleteArticle = function(slug) {
+			return $http.delete("/api/article/" + slug);
+		};
 	}]);
 })();

@@ -8,4 +8,7 @@
   .article-form.ng-dirty input.ng-invalid, .article-form.ng-submitted input.ng-invalid {
     outline: 2px solid red; }
 
+.deletelink {
+  color: red; }
+
 /*# sourceMappingURL=main.css.map */
