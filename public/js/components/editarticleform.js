@@ -5,13 +5,12 @@
 		bindings: {
 			article: "<"
 		},
-		controller: ["articlesService", "$state", "$rootScope", function(articlesService, $state, $rootScope){
+		controller: ["articlesService", "$state", function(articlesService, $state){
 			var vm = this;
 			vm.submitForm = function() {
 				articlesService.updateArticle(vm.article.data.slug, {title: vm.article.data.title, body: vm.article.data.body}, vm.article)
-				.then(function(data){
-					$rootScope.$emit("article:updated", data.data);
-					$state.go("^");
+				.then(function(){
+					$state.go("^", {}, {reload: true});
 				});
 			};
 		}],

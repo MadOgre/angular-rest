@@ -2,15 +2,12 @@
 	"use strict";
 	angular.module("angular-rest")
 	.component("newArticleForm", {
-		controller: ["articlesService", "$state", "$rootScope", function(articlesService, $state, $rootScope){
+		controller: ["articlesService", "$state", function(articlesService, $state){
 			var vm = this;
 			vm.submitForm = function() {
 				articlesService.postArticle({title: vm.title, body: vm.body})
-				.then(function(data){
-					vm.title = "";
-					vm.body = "";
-					$rootScope.$emit("article:created", data.data);
-					$state.go("^");
+				.then(function(){
+					$state.go("^", {}, {reload: true});
 				});
 			};
 			vm.cancel = function() {

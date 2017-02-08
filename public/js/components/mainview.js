@@ -5,7 +5,6 @@
 		bindings: {
 			articles: "<"
 		},
-
 		template:
 			'<div>' +
 				'<a ui-sref="home.mainview.newarticle">Create New Article</a>' + 
