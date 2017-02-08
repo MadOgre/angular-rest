@@ -9,7 +9,7 @@ let nodemon = require("gulp-nodemon");
 
 const BS_RELOAD_TIMEOUT = 400;
 
-gulp.task("browsersync", () => {
+gulp.task("browsersync", ["nodemon"], () => {
 	return bs.init({
 		   	proxy: "localhost:3000",
 			port: 4000
@@ -41,8 +41,8 @@ gulp.task("css", () => {
 	.pipe(bs.stream());
 });
 
-gulp.task("default", ["nodemon", "browsersync"], () => {
-	gulp.watch("./**/*.html", bs.reload);
-	gulp.watch("./public/**/*.js", bs.reload);
-	gulp.watch("./**/*.scss", ["css"]);
+gulp.task("default", ["browsersync"], () => {
+	gulp.watch("public/**/*.html", bs.reload);
+	gulp.watch("public/**/*.js", bs.reload);
+	gulp.watch("public/**/*.scss", ["css"]);
 });
