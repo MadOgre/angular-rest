@@ -8,10 +8,10 @@ let models = require("../models");
 router.use(bodyParser.json());
 
 router.get("/articles", getAll);
-router.get("/article/:id", getOne);
+router.get("/article/:slug", getOne);
 router.post("/article", create);
-router.put("/article/:id", update);
-router.delete("/article/:id", destroy);
+router.put("/article/:slug", update);
+router.delete("/article/:slug", destroy);
 
 function getAll(req, res, next) {
 	models.Article.find({})
@@ -24,7 +24,7 @@ function getAll(req, res, next) {
 }
 
 function getOne(req, res, next) {
-	models.Article.findById(req.params.id)
+	models.Article.findOne({slug: req.params.slug})
 	.then((data) => {
 		res.json(data);
 	})
@@ -35,6 +35,8 @@ function getOne(req, res, next) {
 
 function create(req, res, next) {
 	let article = new models.Article(req.body);
+	article.author = "Anonymous";
+	article.created_at = new Date();
 	article.save()
 	.then((data) => {
 		res.json(data);
@@ -45,9 +47,10 @@ function create(req, res, next) {
 }
 
 function update(req, res, next) {
-	models.Article.findById(req.params.id)
+	models.Article.findOne({slug: req.params.slug})
 	.then((article) => {
 		Object.assign(article, req.body);
+		article.updated_at = new Date();
 		return article.save();
 	})
 	.then((data) => {
@@ -59,7 +62,7 @@ function update(req, res, next) {
 }
 
 function destroy(req, res, next) {
-	models.Article.findById(req.params.id)
+	models.Article.findOne({slug: req.params.slug})
 	.then((article) => {
 		return article.remove();
 	})

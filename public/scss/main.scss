@@ -1,0 +1,16 @@
+.article-form {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: block;
+	&.ng-dirty, &.ng-submitted {
+		input.ng-invalid  {
+			outline: 2px solid red;
+		}
+	}
+}
+
+.deletelink {
+	color: red;
+}
