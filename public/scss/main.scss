@@ -4,8 +4,8 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	display: block;
-	&.ng-submitted {
-		input.ng-invalid {
+	&.ng-dirty, &.ng-submitted {
+		input.ng-invalid  {
 			outline: 2px solid red;
 		}
 	}

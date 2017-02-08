@@ -13,11 +13,15 @@
 					$state.go("^", {}, {reload: true});
 				});
 			};
+			vm.cancel = function() {
+				$state.go("^");
+			};
 		}],
-		template: '<form class="article-form">' +
-					'<input ng-model="$ctrl.article.data.title" name="title" placeholder="title"><br>' +
+		template: '<form name="editArticleForm" class="article-form" ng-submit="editArticleForm.$valid && $ctrl.submitForm()" novalidate>' +
+					'<input required autofocus ng-model="$ctrl.article.data.title" name="title" placeholder="title"><br>' +
 					'<input ng-model="$ctrl.article.data.body" name="body" placeholder="body"><br>' +
-					'<button ng-click="$ctrl.submitForm()">Submit</button>' +
+					'<button type="submit">Submit</button>' +
+					'<button type="button" ng-click="$ctrl.cancel()">Cancel</button>' +
 				  '</form>'
 	});
 })();

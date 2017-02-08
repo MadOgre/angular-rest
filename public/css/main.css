@@ -5,7 +5,7 @@
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   display: block; }
-  .article-form.ng-submitted input.ng-invalid {
+  .article-form.ng-dirty input.ng-invalid, .article-form.ng-submitted input.ng-invalid {
     outline: 2px solid red; }
 
 /*# sourceMappingURL=main.css.map */
