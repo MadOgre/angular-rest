@@ -18,6 +18,7 @@
 			'<h1>{{$ctrl.article.data.title}}</h1>' +
 			'<p>{{$ctrl.article.data.body}}</p>' +
 			'<p>Created on: {{$ctrl.article.data.created_at | date : "MMMM d yyyy, h:mm:ss a"}}</p>' +
+			'<p ng-if="$ctrl.article.data.updated_at">Updated at: {{$ctrl.article.data.updated_at | date : "MMMM d yyyy, h:mm:ss a"}}</p>' +
 			'<a ui-sref="home.mainview">Back to articles listing</a><br>' + 
 			'<a ui-sref="home.article.edit">Edit this article</a>' +
 			'<ui-view></ui-view>'
